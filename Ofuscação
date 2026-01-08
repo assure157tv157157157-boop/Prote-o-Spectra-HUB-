@@ -1,17 +1,24 @@
--- Executa os dois scripts do Spectra HUB ao mesmo tempo
+-- Proteção para executar apenas uma vez
+if _G.SpectraHubLoaded then
+    warn("Spectra Hub já foi executado.")
+    return
+end
+_G.SpectraHubLoaded = true
 
-local urls = {
+-- URLs dos scripts
+local scripts = {
     "https://raw.githubusercontent.com/assure157tv157157157-boop/Spectra-HUB-/refs/heads/main/Painel%20ADM%20do%20spectra%20hub",
     "https://raw.githubusercontent.com/assure157tv157157157-boop/Spectra-HUB-/refs/heads/main/Come%C3%A7o%20e%20URL%20do%20Spectra"
 }
 
-for _, url in ipairs(urls) do
+-- Executa ambos apenas uma vez
+for _, url in ipairs(scripts) do
     task.spawn(function()
-        local success, err = pcall(function()
+        local ok, err = pcall(function()
             loadstring(game:HttpGet(url))()
         end)
-        if not success then
-            warn("Erro ao executar script:", err)
+        if not ok then
+            warn("Erro ao carregar:", url, err)
         end
     end)
 end
