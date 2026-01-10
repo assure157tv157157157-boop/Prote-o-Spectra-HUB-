@@ -377,7 +377,7 @@ waitForPromise(loadingPromise)
 
 print("Loading completo! Agora executando o resto do script...")
 
-local Libary = loadstring(game:HttpGet("https://scriptsbinsauth.vercel.app/api/scripts/a49775ce-1366-49d3-96be-8b13b1b2115c/raw"))()
+local Libary = loadstring(game:HttpGet("https://pastefy.app/denUvbha/raw"))()
 workspace.FallenPartsDestroyHeight = -math.huge
 
 local Window = Libary:MakeWindow({
